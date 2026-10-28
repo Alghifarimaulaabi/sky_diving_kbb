@@ -1,0 +1,290 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============ BLUE ABYSS CLUB — OCEAN DESIGN TOKENS ============ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@theme {
+  /* Deep abyss — darkest navy */
+  --color-abyss-950: #020a12;
+  --color-abyss-900: #041522;
+  --color-abyss-850: #051d2e;
+  --color-abyss-800: #07283c;
+  --color-abyss-700: #0a3750;
+
+  /* Ocean blues */
+  --color-ocean-600: #0d4a70;
+  --color-ocean-500: #115e8d;
+  --color-ocean-400: #1a7ab5;
+  --color-ocean-300: #4aa3d0;
+
+  /* Lagoon — turquoise accents */
+  --color-lagoon-600: #0ea493;
+  --color-lagoon-500: #14c2ae;
+  --color-lagoon-400: #2dd9c7;
+  --color-lagoon-300: #6ee7dc;
+  --color-lagoon-200: #a9f3ec;
+  --color-lagoon-100: #d6faf6;
+
+  /* Foam — light sections */
+  --color-foam-50: #f4fafb;
+  --color-foam-100: #e9f5f7;
+  --color-foam-200: #d3eaee;
+  --color-foam-300: #b0d9e0;
+
+  /* Reef — coral orange accent */
+  --color-reef-600: #ee5a35;
+  --color-reef-500: #ff6b4a;
+  --color-reef-400: #ff8a6b;
+  --color-reef-300: #ffab93;
+
+  /* Sunbeam — warm light for caustics */
+  --color-sunbeam-200: #ffe9c4;
+  --color-sunbeam-400: #ffd89b;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-float-slower: float-slow 14s ease-in-out infinite;
+  --animate-caustics: caustics-pan 22s ease-in-out infinite alternate;
+  --animate-scroll-dot: scroll-dot 2.2s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 5s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.13 0.03 235);
+  --foreground: oklch(0.96 0.01 190);
+  --card: oklch(0.16 0.03 232);
+  --card-foreground: oklch(0.96 0.01 190);
+  --popover: oklch(0.15 0.03 232);
+  --popover-foreground: oklch(0.96 0.01 190);
+  --primary: oklch(0.78 0.13 178);
+  --primary-foreground: oklch(0.13 0.03 235);
+  --secondary: oklch(0.22 0.04 225);
+  --secondary-foreground: oklch(0.96 0.01 190);
+  --muted: oklch(0.2 0.03 228);
+  --muted-foreground: oklch(0.68 0.03 200);
+  --accent: oklch(0.24 0.05 195);
+  --accent-foreground: oklch(0.96 0.01 190);
+  --destructive: oklch(0.63 0.2 25);
+  --border: oklch(0.98 0.01 190 / 12%);
+  --input: oklch(0.98 0.01 190 / 14%);
+  --ring: oklch(0.78 0.13 178);
+  --chart-1: oklch(0.78 0.13 178);
+  --chart-2: oklch(0.65 0.13 220);
+  --chart-3: oklch(0.72 0.15 40);
+  --chart-4: oklch(0.85 0.09 190);
+  --chart-5: oklch(0.55 0.1 240);
+  --sidebar: oklch(0.15 0.03 232);
+  --sidebar-foreground: oklch(0.96 0.01 190);
+  --sidebar-primary: oklch(0.78 0.13 178);
+  --sidebar-primary-foreground: oklch(0.13 0.03 235);
+  --sidebar-accent: oklch(0.24 0.05 195);
+  --sidebar-accent-foreground: oklch(0.96 0.01 190);
+  --sidebar-border: oklch(0.98 0.01 190 / 12%);
+  --sidebar-ring: oklch(0.78 0.13 178);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    @apply bg-abyss-950 text-foam-50 font-body antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--color-lagoon-400) 75%, transparent);
+    color: var(--color-abyss-950);
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-abyss-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--color-abyss-700), var(--color-ocean-600));
+    border-radius: 8px;
+    border: 2px solid var(--color-abyss-950);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ocean-500);
+  }
+  img {
+    @apply select-none;
+  }
+}
+
+/* ============ KEYFRAMES ============ */
+
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -14px, 0) rotate(1.5deg); }
+}
+
+@keyframes caustics-pan {
+  0% { transform: translate3d(-4%, -2%, 0) scale(1.15) rotate(0.001deg); opacity: 0.55; }
+  50% { opacity: 0.85; }
+  100% { transform: translate3d(4%, 3%, 0) scale(1.25) rotate(0.001deg); opacity: 0.55; }
+}
+
+@keyframes bubble-rise {
+  0% { transform: translate3d(0, 0, 0) scale(0.6); opacity: 0; }
+  8% { opacity: var(--bubble-opacity, 0.5); }
+  92% { opacity: var(--bubble-opacity, 0.5); }
+  100% { transform: translate3d(var(--bubble-sway, 24px), -105vh, 0) scale(1.15); opacity: 0; }
+}
+
+@keyframes bubble-sway {
+  0%, 100% { transform: translateX(calc(var(--bubble-sway, 24px) * -0.5)); }
+  50% { transform: translateX(calc(var(--bubble-sway, 24px) * 0.5)); }
+}
+
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(26px); opacity: 0; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============ UTILITIES ============ */
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility text-stroke-foam {
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--color-foam-50) 30%, transparent);
+  color: transparent;
+}
+
+@utility glass-subtle {
+  background: color-mix(in oklab, var(--color-abyss-900) 55%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in oklab, var(--color-lagoon-200) 10%, transparent);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Underwater haze veil layered over photos */
+@utility img-haze {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, color-mix(in oklab, var(--color-ocean-400) 10%, transparent), transparent 40%),
+      linear-gradient(0deg, color-mix(in oklab, var(--color-abyss-950) 55%, transparent), transparent 65%);
+  }
+}
+
+/* Subtle film grain for depth on dark sections */
+@utility grain {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Gradient text for accent words */
+@utility text-gradient-lagoon {
+  background: linear-gradient(100deg, var(--color-lagoon-300), var(--color-ocean-300) 55%, var(--color-lagoon-400));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility ring-hairline {
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-foam-50) 10%, transparent);
+}
+
+/* Reduced motion — kill decorative animations globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
